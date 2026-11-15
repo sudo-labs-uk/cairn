@@ -6,6 +6,6 @@
     "name": "Renier Botha"
   },
   "license": "MIT",
-  "repository": "https://github.com/Rendiere/cairn",
+  "repository": "https://github.com/sudo-labs-uk/cairn",
   "types": "./types/index.d.ts"
 }
