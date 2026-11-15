@@ -34,7 +34,7 @@ in `shared/rules.md`.
 ## Install
 
 ```sh
-claude plugin marketplace add Rendiere/cairn
+claude plugin marketplace add sudo-labs-uk/cairn
 claude plugin install cairn@cairn
 ```
 
