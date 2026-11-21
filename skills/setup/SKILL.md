@@ -20,7 +20,7 @@ scaffolding is in `${CLAUDE_PLUGIN_ROOT}/vault/`, every machine key is shown in
 `${CLAUDE_PLUGIN_ROOT}/vault/cairn.example.toml`.
 
 The vault gets every template in `${CLAUDE_PLUGIN_ROOT}/vault/templates/`, and the Folder column of every
-note type in note-types.md plus `queue/`, `study/`, `interviews/` and `maps/`, each with an empty
+note type in note-types.md plus `queue/`, `study/`, `interviews/`, `maps/` and `briefs/`, each with an empty
 `.gitkeep` (Session state rule 6).
 
 ## Steps
@@ -47,8 +47,8 @@ note type in note-types.md plus `queue/`, `study/`, `interviews/` and `maps/`, e
    - in the vault: `git config --unset core.hooksPath`, `git rm -r .githooks`, delete `.company`;
    - `git mv` every file in `persons/` to `people/` (links resolve by filename, so none change), then
      remove `persons/`;
-   - for each company vault being copied: copy its note folders, `queue/`, `interviews/`, `study/` and
-     `maps/` into the same folders in the vault (its `persons/` into `people/`), and set `company: <name>`
+   - for each company vault being copied: copy its note folders, `queue/`, `interviews/`, `study/`, `maps/` and
+     `briefs/` into the same folders in the vault (its `persons/` into `people/`), and set `company: <name>`
      in the frontmatter of every copied Markdown file, adding frontmatter where there is none; a file
      whose name already exists in the vault is not copied and is named in the list; the company vault
      itself is not changed;

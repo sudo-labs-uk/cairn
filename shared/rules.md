@@ -38,6 +38,13 @@ is stated nowhere else; skills and vault files point here instead of repeating i
   the owner set aside, and a length in minutes.
 - **Knowledge base (KB):** notes the owner already had before cairn. Cairn reads them and never writes
   to them; their text never becomes note prose.
+- **Brief:** one deliverable the owner must be able to explain to a named audience by a date, in
+  `briefs/<slug>.md`: the deliverable, the questions the audience will ask, and the topics it needs, in
+  prerequisite order. See "Briefs".
+- **Explain-it test:** one question per brief topic that the owner must answer aloud, without notes, in
+  front of the brief's audience.
+- **Rehearsal:** the session in which Claude plays the brief's audience and asks one topic's explain-it
+  test, closed book.
 
 ## Config
 
@@ -127,6 +134,45 @@ which and offer `/cairn:setup`; write nothing until setup has run.
 7. In a general note, an answer that names the employer goes to the transcript only; the heading stays
    empty until the owner re-answers in general terms.
 8. Study packs are Claude's writing and are never notes. Nothing in a pack is marked `[claude]`.
+
+## Briefs
+
+A brief turns "I built this with an agent" into "I can explain this to them without help". It is
+Claude's writing, confirmed line by line by the owner, and never a note.
+
+1. The deliverable is one sentence starting "Be able to", naming the audience and what they will see or
+   decide ("Be able to walk the auditors through how a refund reaches the ledger").
+2. Every question under "Questions they will ask" comes from a source: a meeting transcript, a thread, a
+   review comment, or the owner. Claude paraphrases it in one line and adds a pointer (meeting title and
+   time, thread link). Claude never invents a question, and drafts from a transcript, never a summary.
+   The owner confirms, edits or drops each one before any topic is written.
+3. Topics serve the questions. Each topic is a vault slug, in prerequisite order: a topic is listed after
+   every topic it builds on. Each has one explain-it test, phrased as the audience would ask it, and
+   names the questions it answers by number.
+4. A topic's status, and the command that moves it on:
+
+   | Status | Means | Next command |
+   |---|---|---|
+   | `todo` | no study pack covers the test | `/cairn:study <topic>` |
+   | `studied` | its study pack covers the test | `/cairn:interview <topic>` |
+   | `noted` | its note is `defensible` | `/cairn:brief rehearse <brief> <topic>` |
+   | `passed` | a rehearsal passed | none |
+
+   While a `noted` topic has open gap items from a failed rehearsal (rule 5), its next command is
+   `/cairn:interview close <item>` for the first of them instead. A new brief starts each topic at the
+   highest status that already holds. Whichever skill changes the
+   fact a status rests on sets the status, and only forward, except that a note going back to `draft`
+   sets its topic back to `studied` in every open brief.
+5. A rehearsal passes only when both hold: Claude's grade against the study pack's sources, the note's
+   sources, and the code or documents behind them finds nothing wrong or missing, and the owner says
+   they would say it that way in the room. Anything else is a fail: the topic stays `noted`, and each gap
+   becomes a queue item touching the topic's note.
+6. A brief about the employer's work carries the company tag. Its audience names roles, never personal
+   details. Files it causes on a general topic (a study pack, a gap queue item) follow "Company topics":
+   no tag, no employer names, and the brief's questions restated in general terms.
+7. A brief closes (`status: done`, `closed:` set) when every topic is `passed`, or when the owner drops
+   it (`status: dropped`).
+8. While a brief is open, its next topic not yet `passed` outranks the sweep's own picks.
 
 ## Interview conduct
 

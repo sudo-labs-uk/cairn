@@ -22,8 +22,8 @@ common='Owner name: Ada. Git email for the vault: ada@example.com. No existing k
 check_vault() {
   local v=$1
   check "cairn.toml names the owner" "grep -q 'owner *= *\"Ada\"' $v/cairn.toml"
-  for t in concept system project synthesis person queue map; do check "template $t.md" "test -f $v/templates/$t.md"; done
-  for d in concepts systems projects synthesis people queue study interviews maps; do check "$d/.gitkeep" "test -f $v/$d/.gitkeep"; done
+  for t in concept system project synthesis person queue map brief; do check "template $t.md" "test -f $v/templates/$t.md"; done
+  for d in concepts systems projects synthesis people queue study interviews maps briefs; do check "$d/.gitkeep" "test -f $v/$d/.gitkeep"; done
   check "no persons/, .company or .githooks/" "test ! -e $v/persons && test ! -e $v/.company && test ! -e $v/.githooks"
   check "vault is a git repo with a commit" "git -C $v rev-parse HEAD"
 }

@@ -67,15 +67,16 @@ and "What it combines" (synthesis). They feed the note's `depends:` list.
 
 | File | Lives in | Written by |
 |---|---|---|
-| `templates/queue.md` | `queue/<slug>.md` | interview, sweep, setup (KB onboarding) |
+| `templates/queue.md` | `queue/<slug>.md` | interview, sweep, setup (KB onboarding), brief |
 | `templates/map.md` | `maps/<area>.md`, for company notes only | interview, when no map fits the topic |
+| `templates/brief.md` | `briefs/<slug>.md` | brief; its topic statuses also by study, interview and brief rehearse |
 
 ## Placeholders
 
 | Placeholder | Used in | Filled with |
 |---|---|---|
 | `{{title}}` | every template | the topic's readable name |
-| `{{date}}` | `queue.md` | today, `YYYY-MM-DD` |
+| `{{date}}` | `queue.md`, `brief.md` | today, `YYYY-MM-DD` |
 | `{{links}}` | `queue.md` | wikilinks to every note the question touches, comma-separated |
 | `{{owner}}` | the vault's `README.md` | `owner` from `cairn.toml` (setup only) |
 
@@ -87,5 +88,7 @@ A queue item's `tags:` frontmatter holds `in-your-kb` when the owner's knowledge
 |---|---|
 | `interviews/YYYY-MM-DD-HHMM-<slug>.md` | interview (transcript) |
 | `interviews/YYYY-MM-DD-HHMM-sweep.md` | sweep (record) |
+| `interviews/YYYY-MM-DD-HHMM-rehearse-<topic-slug>.md` | brief rehearse (transcript) |
+| `briefs/<slug>.md` | brief |
 | `study/<slug>/README.md`, `study/<slug>/outputs/` | study |
 | `labs/<lab>/` | study, created on first use |
