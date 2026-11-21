@@ -32,7 +32,9 @@ and its pack's `README.md` carries the company tag.
    `.gitkeep`. Unless it is already open, create `queue/resume-study-<slug>.md` from `templates/queue.md`,
    titled "resume study: <slug>", listing what is left. When the slug is a topic in an open brief under
    `briefs/`, name the brief: the scope also covers the topic's explain-it test and the brief questions it
-   answers. Done when the pack holds the date and scope and the resume item is open.
+   answers, restated in general terms for a general topic (rule 6 in "Briefs"), and a refresher's scope is
+   the test unless the owner names something else. Done when the pack holds the date and scope and the
+   resume item is open.
 2. **Probe.** Ask one question: "What do you think it is, and what do you think it's for?" Do not correct
    yet; the answer names the misconceptions to teach against. Append it to the pack, quoted. Done when
    the answer is in the pack.
@@ -56,7 +58,7 @@ and its pack's `README.md` carries the company tag.
 5. **Hand-off.** Show the reading list again, in order, and say to run `/cairn:interview <slug>` once
    they have read it and feel ready, or `/cairn:study <slug>` first when the resume item still lists
    ideas. Close the resume item when it lists nothing. For a brief topic at `todo`, set it to `studied` in
-   the brief once the resume item is closed. Append the hand-off to the pack. Done when the list is shown.
+   the brief once the resume item is closed (rule 4 in "Briefs"). Append the hand-off to the pack. Done when the list is shown.
 6. **Commit.** Commit and push the vault as "Commit and push" says, with message
    `study: <slug>`, and end with the line Session state rule 3 asks for. Done when the commit lands and
    the line is said.

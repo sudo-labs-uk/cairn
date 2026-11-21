@@ -149,15 +149,25 @@ Claude's writing, confirmed line by line by the owner, and never a note.
 3. Topics serve the questions. Each topic is a vault slug, in prerequisite order: a topic is listed after
    every topic it builds on. Each has one explain-it test, phrased as the audience would ask it, and
    names the questions it answers by number.
-4. A topic's status moves `todo` → `studied` (its study pack covers the test) → `noted` (its note passed
-   read-back) → `passed` (a rehearsal passed). A topic whose note was already `defensible` when the brief
-   was written starts at `noted`.
-5. A rehearsal passes only when both hold: Claude's grade against the study pack's sources (or the
-   code and documents behind them) finds nothing wrong or missing, and the owner says they would say it
-   that way in the room. Anything else is a fail: the topic stays `noted`, and each gap becomes a queue
-   item touching the topic's note.
+4. A topic's status, and the command that moves it on:
+
+   | Status | Means | Next command |
+   |---|---|---|
+   | `todo` | no study pack covers the test | `/cairn:study <topic>` |
+   | `studied` | its study pack covers the test | `/cairn:interview <topic>` |
+   | `noted` | its note is `defensible` | `/cairn:brief rehearse <brief> <topic>` |
+   | `passed` | a rehearsal passed | none |
+
+   A new brief starts each topic at the highest status that already holds. Whichever skill changes the
+   fact a status rests on sets the status, and only forward, except that a note going back to `draft`
+   sets its topic back to `studied` in every open brief.
+5. A rehearsal passes only when both hold: Claude's grade against the study pack's sources, the note's
+   sources, and the code or documents behind them finds nothing wrong or missing, and the owner says
+   they would say it that way in the room. Anything else is a fail: the topic stays `noted`, and each gap
+   becomes a queue item touching the topic's note.
 6. A brief about the employer's work carries the company tag. Its audience names roles, never personal
-   details.
+   details. Files it causes on a general topic (a study pack, a gap queue item) follow "Company topics":
+   no tag, no employer names, and the brief's questions restated in general terms.
 7. A brief closes (`status: done`, `closed:` set) when every topic is `passed`, or when the owner drops
    it (`status: dropped`).
 8. While a brief is open, its next topic not yet `passed` outranks the sweep's own picks.

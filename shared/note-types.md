@@ -67,7 +67,7 @@ and "What it combines" (synthesis). They feed the note's `depends:` list.
 
 | File | Lives in | Written by |
 |---|---|---|
-| `templates/queue.md` | `queue/<slug>.md` | interview, sweep, setup (KB onboarding) |
+| `templates/queue.md` | `queue/<slug>.md` | interview, sweep, setup (KB onboarding), brief |
 | `templates/map.md` | `maps/<area>.md`, for company notes only | interview, when no map fits the topic |
 | `templates/brief.md` | `briefs/<slug>.md` | brief; its topic statuses also by study, interview and brief rehearse |
 

@@ -17,7 +17,7 @@ Be able to
 
 ## Topics
 
-| # | Topic | Explain-it test | Status |
-|---|---|---|---|
+| # | Topic | Explain-it test | Answers | Status |
+|---|---|---|---|---|
 
 ## Rehearsals

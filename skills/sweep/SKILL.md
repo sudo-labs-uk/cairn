@@ -74,8 +74,8 @@ how many were left out.
    "Company topics" in `rules.md` says. Done when each topic has one type and one mark.
 5. **Subtract.** Check filenames and titles in every folder listed in `note-types.md`,
    plus `queue/` and `study/`. Drop a topic whose note is `defensible`, whose open queue item or study
-   pack was changed in the window, or that an open brief lists: the brief drives it. Keep a `draft` note's topic as a partial. Then check filenames and
-   headings under each `[sources.kb]` path: a match never drops a topic; tag it "in your KB" with the file
+   pack was changed in the window, or that an open brief lists: the brief drives it. Keep a `draft`
+   note's topic as a partial. Then check filenames and headings under each `[sources.kb]` path: a match never drops a topic; tag it "in your KB" with the file
    path. Note any open queue item whose topic the material touched. Append the remaining topics to the
    record. With none left, append "no gaps", close the resume item, commit, and end with the line "No gaps
    since <window start>; record at <path>. Say read-back for a 5-minute read-back, or run /cairn:interview
@@ -94,13 +94,14 @@ how many were left out.
    `/cairn:interview`; otherwise its missing parts join the ranking as prerequisites. Append the candidates
    to the record. Done when every candidate is ready or gated.
 9. **Discuss.** First, one line per open brief, soonest `due:` first: its next topic, that topic's
-   status and the next command from "Next step" in the brief skill (rule 8 in "Briefs"). Daily: the
-   hand-off may be that command instead of a queue item. Weekly: running it now counts as the one run.
+   status and its next command (rules 4 and 8 in "Briefs"). Daily: step 11 offers that command. Weekly:
+   running it now counts as the one run.
    Then, daily: show the top two topics, each with where it came up and any "in
    your KB" tag, and their proposed links, and ask whether to park both as queue items. Weekly and
    monthly: show the top four topics, each with where it came up and any "in your
    KB" tag, plus one line per synthesis candidate. Ask which to take on; then, one pick per turn, how: a
-   queue item, or (weekly only, one pick at most) a `/cairn:study` or `/cairn:interview` run now. Then
+   queue item, or (weekly only, one pick at most) a `/cairn:study`, `/cairn:interview` or brief rehearsal
+   run now. Then
    show every proposed link once and ask which to keep. Append each answer to the record as it comes. Done
    when every shown topic is picked or skipped and every proposed link is kept or dropped.
 10. **Act.** Write a queue item `learn-<topic-slug>` from `templates/queue.md` for each pick not run now,
@@ -108,15 +109,17 @@ how many were left out.
     "Going deeper" in each existing note it touches. Write kept links into the `depends:` frontmatter of
     existing notes. Weekly: run at most one study, interview or rehearsal now. Daily and monthly never start one.
     Append each file written to the record. Done when every pick has a file or has run.
-11. **Read-back.** Daily: offer one choice, one question: close an open queue item noted in step 5 (end
-    by naming `/cairn:interview close <item>`, do not start it) or a 5-minute read-back. Weekly: one
+11. **Read-back.** Daily: offer one choice, one question: an open brief's next command from step 9, close
+    an open queue item noted in step 5 (end by naming the command, do not start it), or a 5-minute
+    read-back. Weekly: one
     read-back. Monthly: three read-backs, then the month check: read the notes changed in the
     window and list pairs that contradict each other and notes that name a topic with a note but do
     not link to it; each contradiction becomes a queue item touching both notes, and each missing link is
     proposed as a `depends:` link and written if the owner keeps it. A read-back picks a `defensible`
     note, quotes its "In one sentence" (or its first required heading), and asks "does this still sound
-    like you?"; apply their edit, or on a no set the note to `draft` and name the heading in
-    `queue/resume-interview-<slug>.md`, creating it from `templates/queue.md` if needed. Append each
+    like you?"; apply their edit, or on a no set the note to `draft`, set its topic back in every open
+    brief (rule 4 in "Briefs"), and name the heading in `queue/resume-interview-<slug>.md`, creating it
+    from `templates/queue.md` if needed. Append each
     result to the record. Done when every read-back has an answer and, monthly, the check is in the record.
 12. **Record.** Append what was picked and how, a `## Skipped` list of skipped topics, and the next
     command, and close the resume item. Topic names and source titles only, no quotes. Commit and push
