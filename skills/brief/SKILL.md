@@ -40,8 +40,9 @@ with the line Session state rule 3 asks for, naming the command that picks up.
    meeting with the audience or on the topic (transcripts, as rule 2 says), the channels and threads
    where it is discussed, the tracker's project and tickets, design docs, and the code and notebooks the
    owner built. Use every source the machine file configures and every connector the session has, and
-   ask the owner which channel, project and docs hold it. Append one line per source read, or skipped and
-   why, to the resume item. Then list at most ten questions, numbered, each with its pointer. Show the
+   ask the owner which channel, project and docs hold it. Write one `[claude]` line per source read, or skipped
+   and why, under the brief's "Sources read", and list there what the sweep found but the deliverable
+   leaves out, for a later brief. Then list at most ten questions, numbered, each with its pointer. Show the
    sources read and the list, and ask which questions to keep, edit or drop, and what is missing. Write
    only the confirmed list. Done when every named source has its line and the owner confirms the list.
 4. **Topics.** For each question, name what the owner must understand to answer it. Match each to an
