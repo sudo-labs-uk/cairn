@@ -19,6 +19,9 @@ earns its place by answering one of those questions.
   step it names; otherwise show where the brief stands and start its next step.
 - `/cairn:brief rehearse <slug> [topic]`: one rehearsal, on the named topic or the brief's first topic
   not yet `passed`. 10 minutes.
+- `/cairn:brief drop <slug>`: ask once to confirm, set `status: dropped` and `closed:` (rule 7), commit
+  with message `brief: <slug>`, and end with one line: the brief's path, that it is dropped, and
+  `/cairn:sweep`.
 - No argument: list open briefs with their due date and next topic, and ask which one.
 
 Every mode reads the config as "Config" in `rules.md` says, and runs `date +%H:%M` at its start and
@@ -69,7 +72,9 @@ with one line: the brief's path, that it is done, and `/cairn:sweep` as the next
 ## Rehearse
 
 1. **Open.** State the 10-minute limit and its end time. Read the brief, the topic's note, its study
-   pack when one exists, and the note's sources. Create the transcript
+   pack when one exists, and the note's sources. When `queue/resume-brief-rehearse-<topic-slug>.md` is
+   open, reopen the transcript it links and go to the first step it still lists; at the limit, the
+   closing line names `/cairn:brief rehearse <slug> <topic>` to pick up. Otherwise create the transcript
    `interviews/YYYY-MM-DD-HHMM-rehearse-<topic-slug>.md`, with the brief's company tag, holding the brief,
    the topic, its test and the start time, and the queue item `queue/resume-brief-rehearse-<topic-slug>.md`
    from `templates/queue.md`, titled "resume rehearsal: <topic-slug>", listing steps 2 to 5 and linking

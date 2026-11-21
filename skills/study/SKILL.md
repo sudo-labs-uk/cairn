@@ -31,7 +31,8 @@ and its pack's `README.md` carries the company tag.
    a dated section to the existing one, holding the date and the scope, and `study/<slug>/outputs/` with a
    `.gitkeep`. Unless it is already open, create `queue/resume-study-<slug>.md` from `templates/queue.md`,
    titled "resume study: <slug>", listing what is left. When the slug is a topic in an open brief under
-   `briefs/`, name the brief: the scope also covers the topic's explain-it test and the brief questions it
+   `briefs/`, tell the owner which brief it serves (the pack names it only for a company topic): the scope
+   also covers the topic's explain-it test and the brief questions it
    answers, restated in general terms for a general topic (rule 6 in "Briefs"), and a refresher's scope is
    the test unless the owner names something else. Done when the pack holds the date and scope and the
    resume item is open.

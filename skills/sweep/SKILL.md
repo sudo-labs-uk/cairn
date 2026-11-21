@@ -110,8 +110,8 @@ how many were left out.
     existing notes. Weekly: run at most one study, interview or rehearsal now. Daily and monthly never start one.
     Append each file written to the record. Done when every pick has a file or has run.
 11. **Read-back.** Daily: offer one choice, one question: an open brief's next command from step 9, close
-    an open queue item noted in step 5 (end by naming the command, do not start it), or a 5-minute
-    read-back. Weekly: one
+    an open queue item noted in step 5, or a 5-minute read-back. For either of the first two, end by
+    naming the command; do not start it. Weekly: one
     read-back. Monthly: three read-backs, then the month check: read the notes changed in the
     window and list pairs that contradict each other and notes that name a topic with a note but do
     not link to it; each contradiction becomes a queue item touching both notes, and each missing link is

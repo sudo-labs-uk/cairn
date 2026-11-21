@@ -158,7 +158,9 @@ Claude's writing, confirmed line by line by the owner, and never a note.
    | `noted` | its note is `defensible` | `/cairn:brief rehearse <brief> <topic>` |
    | `passed` | a rehearsal passed | none |
 
-   A new brief starts each topic at the highest status that already holds. Whichever skill changes the
+   While a `noted` topic has open gap items from a failed rehearsal (rule 5), its next command is
+   `/cairn:interview close <item>` for the first of them instead. A new brief starts each topic at the
+   highest status that already holds. Whichever skill changes the
    fact a status rests on sets the status, and only forward, except that a note going back to `draft`
    sets its topic back to `studied` in every open brief.
 5. A rehearsal passes only when both hold: Claude's grade against the study pack's sources, the note's
