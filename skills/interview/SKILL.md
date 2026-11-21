@@ -70,13 +70,14 @@ One topic, the owner's words, inside the interview limit for its type. Claude co
    like you? Apply their edits as given and write the confirmed `depends:`. On "not yet", the note stays
    `draft`, "read-back" is added to the resume item, and the step ends. A heading they say no longer
    sounds like them is named in the resume item and keeps the note `draft`. On yes, set `status` by the
-   defensible rule in `note-types.md`, and close the resume item when it lists nothing. Append the
-   outcome to the transcript. Done when they have said yes or "not yet".
+   defensible rule in `note-types.md`, and close the resume item when it lists nothing. When the note is a
+   topic at `todo` or `studied` in an open brief, set it to `noted` there. Append the outcome to the
+   transcript. Done when they have said yes or "not yet".
 9. **Commit.** Commit and push the vault as "Commit and push" in `rules.md` says, with message
    `interview: <slug>`. End with one line: the note's path, its status, and the next command:
    `/cairn:interview <slug>` while the resume item is open, `/cairn:interview close <item>` when a parked
-   review error keeps it `draft`, else `/cairn:sweep`. Done when the vault has committed and the line is
-   shown.
+   review error keeps it `draft`, `/cairn:brief rehearse <brief> <slug>` when step 8 set it to `noted` in a
+   brief, else `/cairn:sweep`. Done when the vault has committed and the line is shown.
 
 ## Closing
 

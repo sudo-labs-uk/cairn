@@ -45,7 +45,9 @@ how many were left out.
    for a 5-minute read-back." Otherwise create the resume item `queue/resume-sweep-YYYY-MM-DD-HHMM.md`
    from `templates/queue.md` listing the steps left; after each later step, take that step off the list.
    An open resume item from an earlier sweep is closed now, and its picks not yet acted on join this
-   sweep's step 9. Done when the record and resume item exist, or the no-sources line is said.
+   sweep's step 9. Read every brief in `briefs/` with `status: open` and append each one's title, `due:`
+   and next topic to the record. Done when the record and resume item exist, or the no-sources line is
+   said.
 2. **Gather.** Read every configured source for the window, replacing `{start}` in its query with the
    window's start date, up to the flow's cap. Append one line per source to the record: how many items
    were read and left out, or why the source was skipped (not authorised, no results, tool missing). Never
@@ -71,14 +73,14 @@ how many were left out.
 4. **Type.** Give each topic a note type from `note-types.md`, and mark it a company topic or general as
    "Company topics" in `rules.md` says. Done when each topic has one type and one mark.
 5. **Subtract.** Check filenames and titles in every folder listed in `note-types.md`,
-   plus `queue/` and `study/`. Drop a topic whose note is `defensible`, or whose open queue item or study
-   pack was changed in the window. Keep a `draft` note's topic as a partial. Then check filenames and
+   plus `queue/` and `study/`. Drop a topic whose note is `defensible`, whose open queue item or study
+   pack was changed in the window, or that an open brief lists: the brief drives it. Keep a `draft` note's topic as a partial. Then check filenames and
    headings under each `[sources.kb]` path: a match never drops a topic; tag it "in your KB" with the file
    path. Note any open queue item whose topic the material touched. Append the remaining topics to the
    record. With none left, append "no gaps", close the resume item, commit, and end with the line "No gaps
    since <window start>; record at <path>. Say read-back for a 5-minute read-back, or run /cairn:interview
-   close <item> on an open queue item." Done when every remaining topic is a gap or a partial, or the
-   no-gaps line is said.
+   close <item> on an open queue item." When a brief is open, that line names its next command first.
+   Done when every remaining topic is a gap or a partial, or the no-gaps line is said.
 6. **Graph.** For each topic, list what it is built on, from the `depends:` frontmatter of existing notes
    and queue items, and your own judgement where none exists; every guessed link is a proposal. Its
    dependents are the other topics, remaining or existing, that depend on it; its depth is the longest
@@ -91,7 +93,10 @@ how many were left out.
    setting is a synthesis candidate. List its parts. If every part has a note, it is ready for
    `/cairn:interview`; otherwise its missing parts join the ranking as prerequisites. Append the candidates
    to the record. Done when every candidate is ready or gated.
-9. **Discuss.** Daily: show the top two topics, each with where it came up and any "in
+9. **Discuss.** First, one line per open brief, soonest `due:` first: its next topic, that topic's
+   status and the next command from "Next step" in the brief skill (rule 8 in "Briefs"). Daily: the
+   hand-off may be that command instead of a queue item. Weekly: running it now counts as the one run.
+   Then, daily: show the top two topics, each with where it came up and any "in
    your KB" tag, and their proposed links, and ask whether to park both as queue items. Weekly and
    monthly: show the top four topics, each with where it came up and any "in your
    KB" tag, plus one line per synthesis candidate. Ask which to take on; then, one pick per turn, how: a
@@ -101,7 +106,7 @@ how many were left out.
 10. **Act.** Write a queue item `learn-<topic-slug>` from `templates/queue.md` for each pick not run now,
     with the company tag when it touches a company note, with `depends:` set to its kept links, and add a link to it under
     "Going deeper" in each existing note it touches. Write kept links into the `depends:` frontmatter of
-    existing notes. Weekly: run at most one study or interview now. Daily and monthly never start one.
+    existing notes. Weekly: run at most one study, interview or rehearsal now. Daily and monthly never start one.
     Append each file written to the record. Done when every pick has a file or has run.
 11. **Read-back.** Daily: offer one choice, one question: close an open queue item noted in step 5 (end
     by naming `/cairn:interview close <item>`, do not start it) or a 5-minute read-back. Weekly: one

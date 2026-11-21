@@ -4,7 +4,9 @@ Agents produce output faster than you can understand it, so you end up owning sy
 could not explain to a colleague without asking the agent again. cairn is a Claude Code plugin that helps
 you understand your work well enough to explain it without notes. You study a topic, Claude interviews
 you on it, and only your own answers go into the note. At a review slot you pick, you run a sweep that reads
-your recent work and finds the topics you used but have no note on, basics first.
+your recent work and finds the topics you used but have no note on, basics first. When you have to face
+someone, a brief works back from that deadline: what they will ask, the topics you need to answer, and a
+rehearsal in which Claude plays them.
 
 ## Commands
 
@@ -14,6 +16,7 @@ your recent work and finds the topics you used but have no note on, basics first
 | `/cairn:study <topic>` | Teaches one topic in at most 20 minutes: three to five ranked sources and short hands-on steps you run yourself. Leaves a study pack of reading material in the vault. |
 | `/cairn:interview <topic>` | Asks a fixed set of questions for the note's type (concept, system, project, synthesis, person), one at a time, and writes your answers with grammar fixes only. Afterwards reviews the answers against sources. `close <queue-item>` answers one open question. |
 | `/cairn:sweep` | Your daily, weekly or monthly review. Reads the last 1, 7 or 30 days of Claude Code sessions, meeting notes, Slack and transcript folders, ranks uncovered topics by how many others build on them, and turns the top few into open questions, study sessions or interviews. Writes those questions, links between notes, and a dated record. |
+| `/cairn:brief new <deliverable>` | Works back from something you have to explain to a named audience by a date. Drafts the questions they asked from meeting transcripts and threads, with a pointer to each, for you to confirm; then lists the topics needed to answer them, in prerequisite order, each with a closed-book explain-it test. `/cairn:brief <slug>` starts the next topic's study, interview or rehearsal. `rehearse <slug>` has Claude play the audience, then grades your answer against the sources; a topic passes only when the grade passes and you would say it that way in the room. While a brief is open, the sweep puts its next topic first. |
 | `/cairn:pane` | Opens a pane beside the chat. At the top, today's read-back quotes the oldest defensible note's one-sentence answer and asks whether it still sounds like you; "no" puts `/cairn:interview` for that note in your prompt. A practice interview on an open question shows how many questions are left and the minutes remaining, and takes an answer, a thinking-aloud note and a confidence rating for each question; its answers are not saved. Below that, a graph of the vault coloured by status, then the open questions and drafts, each with a `/cairn:study` button. The graph and the answer fields need the desktop app; the terminal shows a list. The pane only reads the vault. |
 
 Every command but `/cairn:pane` writes as it goes: stop at any point and the next run picks up where you left off.

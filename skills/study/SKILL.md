@@ -30,8 +30,9 @@ and its pack's `README.md` carries the company tag.
    this is a refresher: read the pack and ask what to revisit. Create `study/<slug>/README.md`, or append
    a dated section to the existing one, holding the date and the scope, and `study/<slug>/outputs/` with a
    `.gitkeep`. Unless it is already open, create `queue/resume-study-<slug>.md` from `templates/queue.md`,
-   titled "resume study: <slug>", listing what is left. Done when the pack holds the date and scope and
-   the resume item is open.
+   titled "resume study: <slug>", listing what is left. When the slug is a topic in an open brief under
+   `briefs/`, name the brief: the scope also covers the topic's explain-it test and the brief questions it
+   answers. Done when the pack holds the date and scope and the resume item is open.
 2. **Probe.** Ask one question: "What do you think it is, and what do you think it's for?" Do not correct
    yet; the answer names the misconceptions to teach against. Append it to the pack, quoted. Done when
    the answer is in the pack.
@@ -46,15 +47,16 @@ and its pack's `README.md` carries the company tag.
    then one check question, where a wrong answer gets a direct correction and one more question. Claude
    may run setup (building mock data, installing a tool) but never the discovery command. When a step
    needs a lab, build or extend `labs/<lab>/`, creating `labs/` with a `.gitkeep` if it does not exist.
-   Teach against the probe's misconceptions by name. After each step, save its output to `outputs/`,
+   Teach against the probe's misconceptions by name. For a brief topic, the last step's check question is
+   its explain-it test. After each step, save its output to `outputs/`,
    append the step to the pack (the explanation, the command, the output, the lab used), take the idea
    off the resume item, and run `date +%H:%M`. At the limit, stop after the current step and go to step
    5; the ideas not yet taught stay in the resume item. Done when every idea in scope has its step in the
    pack, or the limit is reached.
 5. **Hand-off.** Show the reading list again, in order, and say to run `/cairn:interview <slug>` once
    they have read it and feel ready, or `/cairn:study <slug>` first when the resume item still lists
-   ideas. Close the resume item when it lists nothing. Append the hand-off to the pack. Done when the
-   list is shown.
+   ideas. Close the resume item when it lists nothing. For a brief topic at `todo`, set it to `studied` in
+   the brief once the resume item is closed. Append the hand-off to the pack. Done when the list is shown.
 6. **Commit.** Commit and push the vault as "Commit and push" says, with message
    `study: <slug>`, and end with the line Session state rule 3 asks for. Done when the commit lands and
    the line is said.
