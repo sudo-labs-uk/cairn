@@ -35,16 +35,13 @@ minutes = 45            # 45 or 60
 slot = "first Mon 10:00"
 
 [study]
-desktop = true          # optional: study sessions expect the Claude Code desktop app
+expect_desktop = true   # optional: study sessions expect the Claude Code desktop app
 
 [labs.notebook]         # optional: one table per kind of lab the owner wants built a set way
-tool = "Hex"
-instructions = """
-Create a Hex project named after the study slug on the warehouse connection. Link it from the lab's
-README.md and ask the owner to open it in the desktop app's browser pane.
-"""
+instructions = "..."    # what Claude does to build it; vault/cairn.example.toml has an example
 ```
 
+- A folder is the cairn vault when it has `cairn.toml` at its root.
 - `[study]` and `[labs.*]` are optional. Without them, study builds each lab with whatever tools the
   topic needs.
 
@@ -87,9 +84,9 @@ which and offer `/cairn:setup`; write nothing until setup has run.
   `note-types.md` names.
 - With an employer set, decide for each topic whether it is a company topic. System, project and person
   notes always are; a concept never is; a synthesis is when its setting is the employer's.
-- The company tag is `company: <employer>` in a file's frontmatter. A file about a company topic
-  carries it: its note, its transcript, its study pack's `README.md`, its lab's `README.md`, every queue item that touches a company note, and every map. A sweep record carries it
-  whenever an employer is set.
+- The company tag is `company: <employer>` in a file's frontmatter. A file about a company topic carries
+  it: its note, its transcript, its study pack's `README.md`, its lab's `README.md`, every queue item
+  that touches a company note, and every map. A sweep record carries it whenever an employer is set.
 - A general idea applied to a company system splits in two: the idea is a concept note, and how the
   company uses it lives in the system's note, which links to the concept.
 - Links point one way. A company note may link to a general note. A general note never links to a company
@@ -100,16 +97,16 @@ which and offer `/cairn:setup`; write nothing until setup has run.
 
 ## Labs
 
-1. A study's lab lives in `study/<slug>/lab/`, beside its pack, in whatever shape the teaching needs: a
-   `README.md` linking to a notebook held elsewhere, or scripts and the data they build.
-2. When a lab's kind matches a `[labs.<kind>]` table in `cairn.toml`, build it with that table's `tool`
-   and follow its `instructions`. A kind is a plain word for how the owner works in the lab, such as
-   `notebook` or `terminal`.
-3. A lab may read another study's lab by path (`../parquet/lab/`). It never writes into it.
-4. A lab may use real data from the employer's systems. Results saved to the vault are aggregates only:
-   no customer data and no credentials, as "Company topics" says.
-5. Large generated data (CSV, Parquet, DuckDB files and folders of them) is gitignored; the lab keeps the
-   script that rebuilds it.
+1. A study's lab sits beside its pack, in the folder `note-types.md` names, in whatever shape the
+   teaching needs: a `README.md` linking to a notebook held elsewhere, or scripts and the data they
+   build.
+2. When `cairn.toml` has a `[labs.<kind>]` table that fits the lab, follow its `instructions` to build
+   it. Without one, use whatever tools the topic needs.
+3. A lab may use real or mock data, and may read another study's lab by its path from the vault root
+   (`study/parquet/lab/`). It never writes into another study's lab.
+4. Results from real data saved to the vault follow "Company topics": no customer data, no credentials.
+5. Generated data files (CSV, Parquet, DuckDB) are gitignored; the lab keeps the script that rebuilds
+   them.
 
 ## Note prose
 
@@ -123,6 +120,8 @@ which and offer `/cairn:setup`; write nothing until setup has run.
 7. In a general note, an answer that names the employer goes to the transcript only; the heading stays
    empty until the owner re-answers in general terms.
 8. Study packs are Claude's writing and are never notes. Nothing in a pack is marked `[claude]`.
+9. Text from the knowledge base never becomes note prose.
+10. A note's "Going deeper" heading holds only links to the open queue items touching it.
 
 ## Briefs
 

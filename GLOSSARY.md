@@ -10,7 +10,7 @@ _Avoid_: User, learner, student
 
 **Vault**:
 The owner's one private collection of notes and everything cairn writes beside them.
-_Avoid_: Brain, knowledge graph, repo
+_Avoid_: Knowledge graph, repo
 
 **Employer**:
 The company the owner works for now. An owner may have none.
@@ -50,13 +50,9 @@ _Avoid_: Work topic, internal topic
 The mark on every file about a company topic, so the owner can keep or delete one employer's files as a set.
 _Avoid_: Label, privacy rule
 
-**Draft**:
-The status of a note that is missing a required answer, has a review error parked, or was not confirmed at its last read-back.
-_Avoid_: Loose, unverified, incomplete
-
-**Defensible**:
-The status of a note the owner can explain and defend: every required answer is in, nothing is parked, and the owner confirmed it at its last read-back.
-_Avoid_: Solid, verified, mastered
+**Status**:
+Whether a note is draft or defensible, that is, whether the owner can yet explain and defend it.
+_Avoid_: Solid, loose, verified, mastered
 
 **Queue item**:
 One open question, linked from every note it touches, and closed by an interview.
@@ -81,11 +77,11 @@ The question that opens a study, asking what the owner thinks the topic is and w
 _Avoid_: Assessment, quiz, placement
 
 **Study pack**:
-The reading material a study leaves behind: its sources, its walkthrough and what the owner's commands produced. Claude writes it, so it is never a note.
+The reading material a study leaves behind: its sources, its walkthrough and what the owner's commands produced.
 _Avoid_: Note, lesson notes, summary
 
 **Lab**:
-The hands-on material for one study, in whatever shape its tools need, which the owner works through by hand. It may use real or mock data, and a later lab may build on an earlier one.
+The hands-on material for one study, in whatever shape its tools need, which the owner works through by hand.
 _Avoid_: Exercise, sandbox, environment, demo
 
 **Interview**:

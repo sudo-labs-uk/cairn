@@ -24,20 +24,21 @@ and its pack's `README.md` carries the company tag.
 
 ## Steps
 
-1. **Open.** Run `date +%H:%M` and state the 20-minute limit with its end time. Read the machine file
-   and `cairn.toml`. When `[study] desktop` is true and `CLAUDE_CODE_ENTRYPOINT` is `cli` (a terminal
-   session), say that study expects the Claude Code desktop app and ask whether to go on here. Name the slug, the same one the note will take, and whether it is a company topic
-   ("Company topics" in `rules.md`). If the argument is a queue item, its question is the whole scope. If
+1. **Open.** Run `date +%H:%M` and state the 20-minute limit with its end time. Read the machine file and
+   `cairn.toml`. When `[study] expect_desktop` is true and `CLAUDE_CODE_ENTRYPOINT` is `cli` (a terminal
+   session), say that study expects the Claude Code desktop app and ask whether to go on here. Name the
+   slug, the same one the note will take, and whether it is a company topic ("Company topics" in
+   `rules.md`). If the argument is a queue item, its question is the whole scope. If
    `queue/resume-study-<slug>.md` is open, the scope is what it lists as left. If `study/<slug>/` exists,
    this is a refresher: read the pack and ask what to revisit. Create `study/<slug>/README.md`, or append
-   a dated section to the existing one, holding the date and the scope, and `study/<slug>/outputs/` with a
-   `.gitkeep`. Unless it is already open, create `queue/resume-study-<slug>.md` from `templates/queue.md`,
-   titled "resume study: <slug>", listing what is left. When the slug is a topic in an open brief under
-   `briefs/`, tell the owner which brief it serves (the pack names it only for a company topic): the scope
-   also covers the topic's explain-it test and the brief questions it
-   answers, restated in general terms for a general topic (rule 6 in "Briefs"), and a refresher's scope is
-   the test unless the owner names something else. Done when the pack holds the date and scope and the
-   resume item is open.
+   a dated section to the existing one, holding the date and the scope, and `study/<slug>/outputs/` with
+   a `.gitkeep`. Unless it is already open, create `queue/resume-study-<slug>.md` from
+   `templates/queue.md`, titled "resume study: <slug>", listing what is left. When the slug is a topic in
+   an open brief under `briefs/`, tell the owner which brief it serves (the pack names it only for a
+   company topic): the scope also covers the topic's explain-it test and the brief questions it answers,
+   restated in general terms for a general topic (rule 6 in "Briefs"), and a refresher's scope is the
+   test unless the owner names something else. Done when the pack holds the date and scope and the resume
+   item is open.
 2. **Probe.** Ask one question: "What do you think it is, and what do you think it's for?" Do not correct
    yet; the answer names the misconceptions to teach against. Append it to the pack, quoted. Done when
    the answer is in the pack.
@@ -48,17 +49,15 @@ and its pack's `README.md` carries the company tag.
    Append the list to the pack. Done when the list is in the pack.
 4. **Teach.** Build the topic up in steps of one idea each, in dependency order, so nothing is used
    before it is introduced. Each step is a few sentences of explanation, with a table or diagram where it
-   beats prose; then something the owner runs themselves, handed over as `! <command>`, a file path or an unrun notebook cell;
-   then one check question, where a wrong answer gets a direct correction and one more question. Claude
-   may run setup (building mock data, installing a tool) but never the discovery command. When a step
-   needs a lab, build or extend `study/<slug>/lab/` as "Labs" in `rules.md` says: name its kind, and when
-   `cairn.toml` has a `[labs.<kind>]` table, use its tool and follow its instructions.
+   beats prose; then something the owner runs themselves, handed over as `! <command>`, a file path or an
+   unrun notebook cell; then one check question, where a wrong answer gets a direct correction and one
+   more question. Claude may run setup (building mock data, installing a tool) but never the discovery
+   command. When a step needs a lab, build or extend `study/<slug>/lab/` as "Labs" in `rules.md` says.
    Teach against the probe's misconceptions by name. For a brief topic, the last step's check question is
-   its explain-it test. After each step, save its output to `outputs/`,
-   append the step to the pack (the explanation, the command, the output, the lab used), take the idea
-   off the resume item, and run `date +%H:%M`. At the limit, stop after the current step and go to step
-   5; the ideas not yet taught stay in the resume item. Done when every idea in scope has its step in the
-   pack, or the limit is reached.
+   its explain-it test. After each step, save its output to `outputs/`, append the step to the pack (the
+   explanation, the command, the output, the lab used), take the idea off the resume item, and run `date
+   +%H:%M`. At the limit, stop after the current step and go to step 5; the ideas not yet taught stay in
+   the resume item. Done when every idea in scope has its step in the pack, or the limit is reached.
 5. **Hand-off.** Show the reading list again, in order, and say to run `/cairn:interview <slug>` once
    they have read it and feel ready, or `/cairn:study <slug>` first when the resume item still lists
    ideas. Close the resume item when it lists nothing. For a brief topic at `todo`, set it to `studied` in
