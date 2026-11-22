@@ -1,5 +1,5 @@
-labs/*/*.csv
-labs/*/*.parquet
-labs/*/*.duckdb
+study/*/lab/**/*.csv
+study/*/lab/**/*.parquet
+study/*/lab/**/*.duckdb
 .obsidian/workspace*.json
 .DS_Store

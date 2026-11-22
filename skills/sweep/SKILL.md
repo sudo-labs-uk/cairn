@@ -5,8 +5,8 @@ description: Scheduled review of the owner's recent work against their notes. Ru
 
 # Sweep
 
-Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md` and `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` before
-anything else.
+Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md`, `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` and
+`${CLAUDE_PLUGIN_ROOT}/GLOSSARY.md` before anything else.
 
 A sweep turns the owner's recent work into a short discussion and a dated record. It writes queue items,
 confirmed `depends:` links into existing notes, and any read-back edits; the notes themselves come from

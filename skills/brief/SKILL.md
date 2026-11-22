@@ -5,8 +5,8 @@ description: Work back from something the owner has to explain to a named audien
 
 # Brief
 
-Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md` and `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` before
-anything else. "Briefs" in `rules.md` holds the rules this skill follows.
+Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md`, `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` and
+`${CLAUDE_PLUGIN_ROOT}/GLOSSARY.md` before anything else. "Briefs" in `rules.md` holds the rules this skill follows.
 
 Study, interview and sweep start from a topic. A brief starts from a deliverable: who the owner has to
 face, what they will ask, and what the owner has to be able to say without help. Every topic it lists

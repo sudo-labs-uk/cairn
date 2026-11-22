@@ -5,8 +5,8 @@ description: First-run setup, repair and upgrade for cairn on this machine. Crea
 
 # Setup
 
-Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md` and `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` before
-anything else.
+Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md`, `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` and
+`${CLAUDE_PLUGIN_ROOT}/GLOSSARY.md` before anything else.
 
 Fifteen minutes, once per machine; check the time with `date +%H:%M` at the start and after each step
 (Session state rule 5). The output is the machine file and the vault files named in rules.md "Config",

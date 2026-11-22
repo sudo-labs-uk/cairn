@@ -21,3 +21,16 @@ slot = "Fri 10:00"
 enabled = true
 minutes = 45            # 45 or 60
 slot = "first Mon 10:00"
+
+# Optional. Study sessions expect the Claude Code desktop app, which shows notebooks and pages beside
+# the chat.
+[study]
+desktop = true
+
+# Optional. How to build a kind of lab: the tool to use and what Claude does to set it up.
+[labs.notebook]
+tool = "Hex"
+instructions = """
+Create a Hex project named after the study slug on the warehouse connection. Link it from the lab's
+README.md and ask the owner to open it in the desktop app's browser pane.
+"""
