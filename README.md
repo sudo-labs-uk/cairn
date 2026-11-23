@@ -29,8 +29,8 @@ frontmatter; notes on tools, formats, ideas and the domain you work in carry no 
 tagged notes. When you change jobs, run `/cairn:setup` again: it lists the old employer's tagged notes and
 asks whether to keep or delete them, and the rest of the vault is unaffected either way.
 
-Setup writes two config files: `cairn.toml` in the vault (your name, your employer, your review slots),
-and `~/.config/cairn/config.toml` for what is true of one machine (the vault's path and sources).
+Setup writes two config files: `cairn.toml` in the vault (your name, your employer, your review slots,
+and optionally how study builds its labs), and `~/.config/cairn/config.toml` for what is true of one machine (the vault's path and sources).
 `vault/cairn.example.toml` and `config.example.toml` show every key. The rules every command follows are
 in `shared/rules.md`.
 

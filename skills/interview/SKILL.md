@@ -5,7 +5,8 @@ description: Capture what the owner understands about one concept, system, proje
 
 # Interview
 
-Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md` and `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` before anything else.
+Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md`, `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` and
+`${CLAUDE_PLUGIN_ROOT}/GLOSSARY.md` before anything else.
 
 One topic, the owner's words, inside the interview limit for its type. Claude conducts the questions under
 "Interview conduct" in `rules.md`, and every note sentence follows "Note prose".

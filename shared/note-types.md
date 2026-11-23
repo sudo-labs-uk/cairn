@@ -91,4 +91,4 @@ A queue item's `tags:` frontmatter holds `in-your-kb` when the owner's knowledge
 | `interviews/YYYY-MM-DD-HHMM-rehearse-<topic-slug>.md` | brief rehearse (transcript) |
 | `briefs/<slug>.md` | brief |
 | `study/<slug>/README.md`, `study/<slug>/outputs/` | study |
-| `labs/<lab>/` | study, created on first use |
+| `study/<slug>/lab/` | study, when a step needs a lab |

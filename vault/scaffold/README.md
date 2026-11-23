@@ -13,7 +13,6 @@ General notes never link to them, so one employer's notes can be kept or deleted
 - `interviews/`: dated interview transcripts and sweep records
 - `queue/`: open questions, one file each
 - `briefs/`: deliverables you must explain to someone by a date, with the topics and tests they need
-- `study/<topic>/`: study packs, reading material and never notes
-- `labs/<lab>/`: runnable environments on mock data
+- `study/<topic>/`: study packs, reading material and never notes, each with its hands-on `lab/`
 - `templates/`: one per note type
 - `cairn.toml`: owner, current employer and review cadence

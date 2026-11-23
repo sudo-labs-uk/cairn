@@ -1,50 +1,13 @@
 # Cairn rules
 
-Every cairn skill reads this file and `note-types.md` beside it before doing anything else. A rule here
-is stated nowhere else; skills and vault files point here instead of repeating it.
+Every cairn skill reads this file, `note-types.md` beside it and the plugin's `GLOSSARY.md` before doing
+anything else. A rule here is stated nowhere else; skills and vault files point here instead of
+repeating it.
 
 ## Glossary
 
-- **Owner:** the person whose notes these are. Their name is `owner` in the vault's `cairn.toml`.
-- **Vault:** the owner's private git repo of Markdown notes, which Obsidian can open. There is one. A
-  folder is the cairn vault when it has `cairn.toml` at its root.
-- **Employer:** the company the owner works for now, `company` in `cairn.toml`. Absent when they have none.
-- **Company topic:** a topic whose note would stop being true once the owner leaves the employer: its
-  systems, projects and people, and a synthesis set there. A topic that would stay true at any employer
-  (a tool, a format, an idea, the domain the company works in) is general.
-- **Company tag:** `company: <employer>` in a file's frontmatter. Every file cairn writes about a company
-  topic carries it, so the owner can find, keep or delete one employer's files when they leave.
-- **Note:** one topic written in the owner's words. Its **note type** (concept, system, project,
-  synthesis, person) fixes its folder, template and questions; see `note-types.md`.
-- **Synthesis:** a note on how several topics combine in one setting ("deletion requests on a lakehouse").
-- **Interview:** the session in which Claude asks a note type's questions and writes only the owner's
-  answers into the note.
-- **Transcript:** the verbatim record of an interview, in `interviews/`.
-- **Study pack:** `study/<slug>/README.md` and its `outputs/`: the sources and walkthrough from a study
-  session. Claude writes it, so it is reading material, never a note.
-- **Lab:** a reusable, runnable environment on mock data under `labs/<lab>/`, named for what it contains
-  (`duckdb-lakehouse`), so several study packs can share it.
-- **Queue item:** one open question, a file in `queue/`, linked from every note it touches. It is closed
-  by an interview.
-- **Going deeper:** the heading in a note that lists links to the open queue items touching it. The
-  owner's answers to the "Going deeper" question become those queue items; the heading holds only links.
-- **Status:** a note is `draft` until its required headings are answered (see `note-types.md`), no
-  review error is parked as a queue item, and the owner said yes at its last read-back; then it is
-  `defensible`: the owner can explain and defend it.
-- **Read-back:** showing the owner something they wrote and asking whether it still sounds like them.
-- **Sweep:** the scheduled review that reads recent work, finds topics with no note, and hands the top
-  few to study or interview.
-- **Cadence:** how often the sweep runs (daily, weekly, monthly). Each cadence has a **slot**, the time
-  the owner set aside, and a length in minutes.
-- **Knowledge base (KB):** notes the owner already had before cairn. Cairn reads them and never writes
-  to them; their text never becomes note prose.
-- **Brief:** one deliverable the owner must be able to explain to a named audience by a date, in
-  `briefs/<slug>.md`: the deliverable, the questions the audience will ask, and the topics it needs, in
-  prerequisite order. See "Briefs".
-- **Explain-it test:** one question per brief topic that the owner must answer aloud, without notes, in
-  front of the brief's audience.
-- **Rehearsal:** the session in which Claude plays the brief's audience and asks one topic's explain-it
-  test, closed book.
+`${CLAUDE_PLUGIN_ROOT}/GLOSSARY.md` fixes every term these files use. Where a term needs a file or a
+key, the section that owns it says which: folders are in `note-types.md`, keys in "Config" below.
 
 ## Config
 
@@ -70,7 +33,17 @@ slot = "Fri 10:00"
 enabled = true
 minutes = 45            # 45 or 60
 slot = "first Mon 10:00"
+
+[study]
+expect_desktop = true   # optional: study sessions expect the Claude Code desktop app
+
+[labs.notebook]         # optional: one table per kind of lab the owner wants built a set way
+instructions = "..."    # what Claude does to build it; vault/cairn.example.toml has an example
 ```
+
+- A folder is the cairn vault when it has `cairn.toml` at its root.
+- `[study]` and `[labs.*]` are optional. Without them, study builds each lab with whatever tools the
+  topic needs.
 
 **Machine file,** `$CAIRN_CONFIG`, else `~/.config/cairn/config.toml`. Never committed.
 
@@ -111,9 +84,9 @@ which and offer `/cairn:setup`; write nothing until setup has run.
   `note-types.md` names.
 - With an employer set, decide for each topic whether it is a company topic. System, project and person
   notes always are; a concept never is; a synthesis is when its setting is the employer's.
-- A file about a company topic carries the company tag: its note, its transcript, its study pack's
-  `README.md`, every queue item that touches a company note, and every map. A sweep record carries it
-  whenever an employer is set.
+- The company tag is `company: <employer>` in a file's frontmatter. A file about a company topic carries
+  it: its note, its transcript, its study pack's `README.md`, its lab's `README.md`, every queue item
+  that touches a company note, and every map. A sweep record carries it whenever an employer is set.
 - A general idea applied to a company system splits in two: the idea is a concept note, and how the
   company uses it lives in the system's note, which links to the concept.
 - Links point one way. A company note may link to a general note. A general note never links to a company
@@ -121,6 +94,19 @@ which and offer `/cairn:setup`; write nothing until setup has run.
 - People notes hold professional facts only: role, what they own, positions they have stated, how you
   work together.
 - The vault holds no source code, credentials, customer data, or personal details about colleagues.
+
+## Labs
+
+1. A study's lab sits beside its pack, in the folder `note-types.md` names, in whatever shape the
+   teaching needs: a `README.md` linking to a notebook held elsewhere, or scripts and the data they
+   build.
+2. When `cairn.toml` has a `[labs.<kind>]` table that fits the lab, follow its `instructions` to build
+   it. Without one, use whatever tools the topic needs.
+3. A lab may use real or mock data, and may read another study's lab by its path from the vault root
+   (`study/parquet/lab/`). It never writes into another study's lab.
+4. Results from real data saved to the vault follow "Company topics": no customer data, no credentials.
+5. Generated data files (CSV, Parquet, DuckDB) are gitignored; the lab keeps the script that rebuilds
+   them.
 
 ## Note prose
 
@@ -134,6 +120,8 @@ which and offer `/cairn:setup`; write nothing until setup has run.
 7. In a general note, an answer that names the employer goes to the transcript only; the heading stays
    empty until the owner re-answers in general terms.
 8. Study packs are Claude's writing and are never notes. Nothing in a pack is marked `[claude]`.
+9. Text from the knowledge base never becomes note prose.
+10. A note's "Going deeper" heading holds only links to the open queue items touching it.
 
 ## Briefs
 

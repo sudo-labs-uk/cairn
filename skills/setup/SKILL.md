@@ -5,8 +5,8 @@ description: First-run setup, repair and upgrade for cairn on this machine. Crea
 
 # Setup
 
-Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md` and `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` before
-anything else.
+Read `${CLAUDE_PLUGIN_ROOT}/shared/rules.md`, `${CLAUDE_PLUGIN_ROOT}/shared/note-types.md` and
+`${CLAUDE_PLUGIN_ROOT}/GLOSSARY.md` before anything else.
 
 Fifteen minutes, once per machine; check the time with `date +%H:%M` at the start and after each step
 (Session state rule 5). The output is the machine file and the vault files named in rules.md "Config",
@@ -28,11 +28,11 @@ note type in note-types.md plus `queue/`, `study/`, `interviews/`, `maps/` and `
 1. **Check.** Read the machine file if it exists, then the vault's `cairn.toml`. For each step below,
    test its "Done when" against disk and report pass or fail in one line; continue at the first step that
    fails, and after it run only the steps that also fail. Look for an older layout: a machine file with
-   `[vaults]` or `[[vaults.company]]`, or holding `owner`, `company_name` or `[cadence] every`; a `.company`
-   file in a vault; a `.githooks/pre-commit` from cairn; or a folder the user names that has
-   `templates/concept.md` but no `cairn.toml`. Any of these sends the run to step 2. Check that `git` and
-   `jq` are installed (the Claude Code source needs `jq`) and note `gh` if present. Done when the starting
-   state is stated in one line per item.
+   `[vaults]` or `[[vaults.company]]`, or holding `owner`, `company_name` or `[cadence] every`; a
+   `.company` file in a vault; a `labs/` folder in a vault; a `.githooks/pre-commit` from cairn; or a
+   folder the user names that has `templates/concept.md` but no `cairn.toml`. Any of these sends the run
+   to step 2. Check that `git` and `jq` are installed (the Claude Code source needs `jq`) and note `gh`
+   if present. Done when the starting state is stated in one line per item.
 2. **Import.** Older layout only. Read the old machine file, any `.company`, and the `cairn.toml` of each
    old vault; where they disagree the machine file wins. The old portable vault (`[vaults] portable`, or
    the vault the old `.company` sat in) becomes the vault. Ask once about each old company vault: "Copy
@@ -47,6 +47,8 @@ note type in note-types.md plus `queue/`, `study/`, `interviews/`, `maps/` and `
    - in the vault: `git config --unset core.hooksPath`, `git rm -r .githooks`, delete `.company`;
    - `git mv` every file in `persons/` to `people/` (links resolve by filename, so none change), then
      remove `persons/`;
+   - `git mv` each `labs/<lab>/` to `study/<slug>/lab/` of the study pack that names it (ask when none or
+     several do), update the paths those packs and notes give, then remove `labs/`;
    - for each company vault being copied: copy its note folders, `queue/`, `interviews/`, `study/`, `maps/` and
      `briefs/` into the same folders in the vault (its `persons/` into `people/`), and set `company: <name>`
      in the frontmatter of every copied Markdown file, adding frontmatter where there is none; a file
